@@ -1,4 +1,4 @@
-package re.sandbox.quarkus;
+package ru.sandbox.quarkus;
 
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Query;

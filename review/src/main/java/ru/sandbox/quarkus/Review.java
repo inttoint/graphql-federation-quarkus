@@ -1,4 +1,4 @@
-package re.sandbox.quarkus;
+package ru.sandbox.quarkus;
 
 import lombok.*;
 import org.eclipse.microprofile.graphql.Id;
