@@ -8,6 +8,7 @@
         product {
             __typename
             id
+            name
         }
     }
 }

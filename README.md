@@ -35,3 +35,95 @@ type Review {
 </td>
 </tr>
 </table>
+
+
+### Request
+
+```graphql
+{
+    allReviews {
+        id
+        comment
+        product {
+            id
+            name
+            price
+        }
+    }
+}
+```
+
+### Response
+
+```json
+{
+  "data": {
+    "allReviews": [
+      {
+        "id": "1",
+        "comment": "text",
+        "product": {
+          "id": "1",
+          "name": "first",
+          "price": 1
+        }
+      },
+      {
+        "id": "2",
+        "comment": "text",
+        "product": {
+          "id": "2",
+          "name": "second",
+          "price": 10
+        }
+      },
+      {
+        "id": "3",
+        "comment": "text",
+        "product": {
+          "id": "1",
+          "name": "first",
+          "price": 1
+        }
+      }
+    ]
+  }
+}
+```
+
+### Query plan
+
+```graphql
+QueryPlan {
+  Sequence {
+    Fetch(service: "review") {
+      {
+        allReviews {
+          id
+          comment
+          product {
+            id
+            name
+            __typename
+          }
+        }
+      }
+    },
+    Flatten(path: "allReviews.@.product") {
+      Fetch(service: "product") {
+        {
+          ... on Product {
+            __typename
+            id
+          }
+        } =>
+        {
+          ... on Product {
+            price
+          }
+        }
+      },
+    },
+  },
+}
+```

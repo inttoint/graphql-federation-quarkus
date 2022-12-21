@@ -20,4 +20,6 @@ public @Extends @Key(fields = id) class Product {
     @Id
     @NonNull
     private @External String id;
+
+    private @External String name;
 }

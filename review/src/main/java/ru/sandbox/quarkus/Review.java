@@ -1,5 +1,6 @@
 package ru.sandbox.quarkus;
 
+import io.smallrye.graphql.api.federation.Provides;
 import lombok.*;
 import org.eclipse.microprofile.graphql.Id;
 import org.eclipse.microprofile.graphql.NonNull;
@@ -17,5 +18,6 @@ public class Review {
 
     private String comment;
 
+    @Provides(fields = "name")
     private Product product;
 }
