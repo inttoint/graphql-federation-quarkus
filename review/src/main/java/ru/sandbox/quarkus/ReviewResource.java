@@ -14,6 +14,7 @@ public class ReviewResource {
     static {
         REVIEWS.add(new Review("1", "text", new Product("1")));
         REVIEWS.add(new Review("2", "text", new Product("2")));
+        REVIEWS.add(new Review("3", "text", new Product("1")));
     }
 
     @Query
