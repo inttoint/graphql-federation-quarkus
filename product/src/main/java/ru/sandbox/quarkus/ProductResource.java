@@ -1,5 +1,6 @@
 package ru.sandbox.quarkus;
 
+import io.smallrye.common.annotation.NonBlocking;
 import org.eclipse.microprofile.graphql.GraphQLApi;
 import org.eclipse.microprofile.graphql.Id;
 import org.eclipse.microprofile.graphql.NonNull;
@@ -20,7 +21,8 @@ public class ProductResource {
     }
 
     @Query
-    public @NonNull Product product(@Id @NonNull String id) {
+    @NonBlocking
+    public Product product(@Id @NonNull String id) {
         return PRODUCTS.stream().filter(p -> p.getId().equals(id)).findFirst().orElseThrow();
     }
 

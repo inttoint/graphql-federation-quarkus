@@ -5,7 +5,7 @@
 <pre>
 type Query {
     allProducts: [Product]
-    product(id: ID!): Product!
+    productResolver(id: ID!): Product
 }
 
 type Product @key(fields : ["id"]) {
@@ -20,7 +20,6 @@ type Product @key(fields : ["id"]) {
 <pre>
 type Query {
     allReviews: [Review]
-    review(id: ID!): Review!
 }
 
 type Product @extends @key(fields : ["id"]) {
