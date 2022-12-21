@@ -1,0 +1,14 @@
+quarkus:
+  http:
+    port: 8081
+
+  smallrye-graphql:
+    events:
+      enabled: true
+    schema-include-scalars: true
+    schema-include-directives: true
+
+  index-dependency:
+    smallrye-graphql-api:
+      group-id: io.smallrye
+      artifact-id: smallrye-graphql-api
