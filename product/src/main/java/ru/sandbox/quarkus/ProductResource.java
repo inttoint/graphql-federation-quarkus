@@ -15,19 +15,17 @@ public class ProductResource {
     private static final List<Product> PRODUCTS = new ArrayList<>();
 
     static {
-        Product first = Product.builder().id("1").name("first").price(BigDecimal.ONE).build();
-        Product second = Product.builder().id("2").name("second").price(BigDecimal.TEN).build();
-        PRODUCTS.add(first);
-        PRODUCTS.add(second);
+        PRODUCTS.add(new Product("1", "first", BigDecimal.ONE));
+        PRODUCTS.add(new Product("2", "second", BigDecimal.TEN));
     }
 
     @Query
-    public Product product(@Id @NonNull String id) {
+    public @NonNull Product product(@Id @NonNull String id) {
         return PRODUCTS.stream().filter(p -> p.getId().equals(id)).findFirst().orElseThrow();
     }
 
     @Query
     public List<Product> allProducts() {
-        return PRODUCTS;
+        return List.copyOf(PRODUCTS);
     }
 }

@@ -1,12 +1,14 @@
 package re.sandbox.quarkus;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 import org.eclipse.microprofile.graphql.Id;
 import org.eclipse.microprofile.graphql.NonNull;
 
-@Data
-@Builder
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Review {
 
     @Id

@@ -1,15 +1,23 @@
 package re.sandbox.quarkus;
 
-import lombok.Builder;
-import lombok.Data;
+import io.smallrye.graphql.api.federation.Extends;
+import io.smallrye.graphql.api.federation.External;
+import io.smallrye.graphql.api.federation.Key;
+import lombok.*;
+import lombok.experimental.FieldNameConstants;
 import org.eclipse.microprofile.graphql.Id;
 import org.eclipse.microprofile.graphql.NonNull;
 
-@Data
-@Builder
-public class Product {
+import static re.sandbox.quarkus.Product.Fields.id;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@FieldNameConstants
+public @Extends @Key(fields = id) class Product {
 
     @Id
     @NonNull
-    private String id;
+    private @External String id;
 }
